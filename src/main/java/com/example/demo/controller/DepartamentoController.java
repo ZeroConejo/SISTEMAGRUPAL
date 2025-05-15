@@ -17,12 +17,12 @@ import com.example.demo.model.Departamento;
 import com.example.demo.service.DepartamentoService;
 
 @RestController
-@RequestMapping("/Departamentos")
+@RequestMapping("/Departamentos") 
 public class DepartamentoController {
 	@Autowired
 	private DepartamentoService service;
 	
-	@GetMapping
+	@GetMapping   //GET http://localhost:8072/Departamentos
 	public List<Departamento> getAll(){
 		return service.getAll();
 	}
@@ -31,7 +31,7 @@ public class DepartamentoController {
 	public Optional<Departamento> getById(@PathVariable("Id") Integer id){
 		return service.getById(id);
 	}
-	@PostMapping
+	@PostMapping      //POST: JSON  http://localhost:8072/Departamentos
 	public Departamento create(@RequestBody Departamento departamento) {
 		return service.create(departamento);
 	}
